@@ -24,7 +24,7 @@ func NewAVLNode(value int) *AVLNode {
 		nil,   // left   *AVLNode
 		nil,   // right  *AVLNode
 		0,     // bf     int
-		1,     // height int
+		0,     // height int
 	}
 
 	return &n
@@ -131,11 +131,11 @@ func (t *AVL) update(node *AVLNode) {
 	}
 
 	node.height = 1
-	leftHeight := 0
+	leftHeight := -1
 	if node.left != nil {
 		leftHeight = node.left.height
 	}
-	rightHeight := 0
+	rightHeight := -1
 	if node.right != nil {
 		rightHeight = node.right.height
 	}
