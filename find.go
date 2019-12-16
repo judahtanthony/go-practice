@@ -331,3 +331,26 @@ func FindBitonicMaxBSearch(data []int) (int, bool) {
 
 	return 0, false
 }
+
+func SeparateOddsEvens(data []int) {
+	n := len(data)
+	if n < 2 {
+		return
+	}
+
+	for l, r := 0, n-1; l < r; {
+		ml := data[l]%2 == 1
+		mr := data[r]%2 == 0
+		if ml {
+			l++
+		}
+		if mr {
+			r--
+		}
+		if !ml && !mr {
+			data[l], data[r] = data[r], data[l]
+			l++
+			r--
+		}
+	}
+}
